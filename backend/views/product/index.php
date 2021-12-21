@@ -24,22 +24,48 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
+            [
+                'attribute' => 'id',
+                'contentOptions' => [
+                'style' => 'width: 60px'
+              ]
+            ],
+            [
+              'label' => 'Imagem',
+              'attribute' => 'image',
+              'content' => function($model) {
+                /** @var \common\models\Product $model */
+                return Html::img($model->getImageUrl(), ['style' => 'width: 50px']);
+              }
+            ],
             'name',
-            'description:ntext',
-            'image',
-            'price',
-            //'status',
-            //'created_at',
-            //'updated_at',
+            'price:currency',
+            [
+              'label' => 'Estado',
+              'attribute' => 'status',
+                'content' => function ($model){
+                    /** @var \common\models\Product $model */
+                    return Html::tag('span', $model->status ? 'Ativo' : 'Rascunho', [
+                        'class' => $model->status ? 'badge badge-success' : 'badge badge-danger'
+                    ]);
+                }
+            ],
+            [
+              'label' => 'Criação',
+              'attribute' => 'created_at',
+                'format' => ['datetime'],
+                'contentOptions' => ['style' => 'white-space: nowrap']
+            ],
+            [
+              'label' => 'Atualização',
+              'attribute' => 'updated_at',
+                'format' => ['datetime'],
+                'contentOptions' => ['style' => 'white-space: nowrap']
+            ],
             //'created_by',
             //'updated_by',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-
-
 </div>
