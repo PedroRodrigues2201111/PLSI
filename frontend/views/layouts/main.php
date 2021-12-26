@@ -10,6 +10,8 @@ use yii\bootstrap4\Html;
 use yii\bootstrap4\Nav;
 use yii\bootstrap4\NavBar;
 
+$cartItemCount = $this->params['cartItemCount'];
+
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -35,7 +37,11 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
+        ['label' => 'Principal', 'url' => ['/site/index']],
+        ['label' => 'Pedido <span id="cart-quantity" class="badge badge-danger">'.$cartItemCount.'</span>',
+        'url' => ['/cart/index'],
+        'encode' => false,
+        ],
         //['label' => 'About', 'url' => ['/site/about']],
         //['label' => 'Contact', 'url' => ['/site/contact']],
     ];
@@ -50,11 +56,11 @@ AppAsset::register($this);
 //            ],
         'items' => [
           [
-            'label' => 'Profile',
+            'label' => 'Perfil',
             'url' => ['/profile/index'],
           ],
           [
-            'label' => 'Logout',
+            'label' => 'Terminar Sessão',
             'url' => ['/site/logout'],
             'linkOptions' => [
               'data-method' => 'post'
