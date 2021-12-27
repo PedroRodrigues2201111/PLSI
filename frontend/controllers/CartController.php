@@ -64,7 +64,6 @@ class CartController extends \frontend\base\Controller
     }
 
     if (\Yii::$app->user->isGuest) {
-
       $cartItems = \Yii::$app->session->get(CartItem::SESSION_KEY, []);
       $found = false;
       foreach ($cartItems as &$item) {
