@@ -31,7 +31,8 @@
             </td>
             <td><?php echo Yii::$app->formatter->asCurrency($item['price']) ?></td>
             <td>
-              <input type="number" min="1" class="form-control item-quantity" style="width: 60px" value="<?php echo $item['quantity'] ?>">
+              <!-- Mínimo quantidade = 1 -->
+              <input type="number" min="1" class="form-control item-quantity" style=" width: 60px" value="<?php echo $item['quantity'] ?>">
             </td>
             <td><?php echo Yii::$app->formatter->asCurrency($item['total_price']) ?></td>
             <td>
