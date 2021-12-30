@@ -274,3 +274,7 @@ class CartController extends \frontend\base\Controller
     // todo Validate the transaction ID. It must not be used and it must be valid transaction ID in paypal.
   }
 }
+
+// EN5i5PIgnLcUJ41jI_wjXqRAItcEKDhFxT87lSt7OOHevTPLVo8s4TGtIORF_M6mRqGfBKbYHNfmLWiX
+
+// Cliente id: ASdVRbFL7DUDGDCtFKM0u7juca1BNg77sl-7C3WPy34cUgbuUvniLqxe8nXVR1eoIg1Og04lQsXrR7UG
